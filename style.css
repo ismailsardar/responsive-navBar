@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+
+/* font-family: 'Roboto Condensed', sans-serif; */
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+body{
+    overflow-x: hidden;
+}
+
+.logo{
+    width: 7rem;
+}
+
+.header{
+    padding: 0 4.8rem;
+    height: 10rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightseagreen;
+}
+
+.navbar_list{
+    display: flex;
+    gap: 4.8rem;
+    list-style: none;
+}
+
+.navber_link:link,
+.navber_link:visited{
+    display: inline-block;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #212529;
+    transform: all 0.3s;
+}
+
+.navber_link:hover,
+.navber_link:active{
+    color: brown;
+}
+
+.hero_section,
+.servis_section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    background-color: darkgray;
+    font-size: 3rem;
+    /* color: antiquewhite; */
+}
+
+.servis_section{
+    background-color: darkolivegreen;
+}
+
+.mobil_navbar{
+    background-color: transparent;
+    cursor: pointer;
+    display: none;
+}
+.mobil_nav_icon{
+    width: 4rem;
+    height: 4rem;
+    color: #212529;
+}
+.mobil_nav_icon[name="close-outline"]{
+    display: none;
+}
+
+/* ========================================
+Responsive code here
+======================================== */
+
+/* 980px */
+@media(max-width: 62em){
+    .mobil_navbar{
+        display: block;
+        z-index: 999;
+        border: 3px solid #212529;
+        border-radius: 5px;
+    }
+
+    .header{
+        position: relative;
+    }
+    .navbar{
+        /* display: none; */
+        width: 50%;
+        height: 100vh;
+        background-color: #a5c7dfa4;
+        position: absolute;
+        top: 10rem;
+        right: 0;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        /* get to transform */
+        transform: translateX(100%);
+        transition: all 0.5s linear;
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+    .navbar_list{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /*=======================
+    Active icone
+    =======================*/
+
+    .active .navbar{
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+    .active .mobil_navbar .mobil_nav_icon[name="close-outline"]{
+        display: block;
+    }
+    .active .mobil_navbar .mobil_nav_icon[name="menu-outline"]{
+        display: none;
+    }
+
+}
